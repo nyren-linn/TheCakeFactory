@@ -1,0 +1,47 @@
+
+SprinkleTest.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+2-bluesprink
+  rotate: false
+  xy: 1, 2
+  size: 113, 91
+  orig: 113, 91
+  offset: 0, 0
+  index: -1
+2-greensprink
+  rotate: false
+  xy: 116, 2
+  size: 113, 91
+  orig: 113, 91
+  offset: 0, 0
+  index: -1
+2-orangesprink
+  rotate: false
+  xy: 231, 2
+  size: 113, 91
+  orig: 113, 91
+  offset: 0, 0
+  index: -1
+2-chips
+  rotate: false
+  xy: 346, 1
+  size: 112, 92
+  orig: 112, 92
+  offset: 0, 0
+  index: -1
+2-oreo
+  rotate: false
+  xy: 460, 20
+  size: 114, 73
+  orig: 114, 73
+  offset: 0, 0
+  index: -1
+2-mms
+  rotate: false
+  xy: 576, 51
+  size: 95, 42
+  orig: 95, 42
+  offset: 0, 0
+  index: -1
