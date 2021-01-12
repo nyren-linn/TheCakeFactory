@@ -1,5 +1,6 @@
 package com.test.testfactory.sprites;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -28,7 +29,7 @@ public class Cupcake extends Sprite {
         previousState = State.START;
         stateTimer = 0;
 
-        Array<TextureRegion> frames = new Array<TextureRegion>();
+       // Array<TextureRegion> frames = new Array<TextureRegion>();
         t1 = new TextureRegion(getTexture(), 1, 1, 300, 300);
         t2 = new TextureRegion(getTexture(), 303, 1, 300, 300);
 
@@ -37,10 +38,25 @@ public class Cupcake extends Sprite {
         defineCupcake();
         setBounds(50, 0, 250, 250);
         setRegion(cupcakeStart);
+
     }
 
     public void update(float dt){
-        setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
+        //setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
+        Gdx.app.log("state", "START");
+        getState();
+        if(currentState == State.START){
+            currentState = State.FROSTING;
+            cupcakeStart = t1;
+            Gdx.app.log("state", "FROSTING");
+            //return cupcakeStart;
+        } else if(currentState == State.FROSTING){
+            currentState = State.TOPPING;
+            cupcakeStart = t2;
+            Gdx.app.log("state", "TOPPING");
+            //return cupcakeStart;
+        }
+
         setRegion(getFrame());
     }
 
@@ -49,15 +65,7 @@ public class Cupcake extends Sprite {
     }
 
     public TextureRegion getFrame(){
-        if(currentState == State.START){
-            currentState = State.FROSTING;
-            cupcakeStart = t1;
-            return cupcakeStart;
-        } else if(currentState == State.FROSTING){
-            currentState = State.TOPPING;
-            cupcakeStart = t2;
-            return cupcakeStart;
-        }
+
         return cupcakeStart;
     }
 

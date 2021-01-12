@@ -84,10 +84,10 @@ public class PlayScreen implements Screen {
     //finns för update
     public void handleInput(float dt){
         if(Gdx.input.justTouched()) {
-            //    cupcake.b2body.applyLinearImpulse(new Vector2(0, 4f), cupcake.b2body.getWorldCenter(),true);
-           // cupcake.getFrame();
+            cupcake.b2body.applyLinearImpulse(new Vector2(0, 4f), cupcake.b2body.getWorldCenter(),true);
+            cupcake.getFrame();
             Gdx.app.log("input", "touched");
-           // cupcake.update(dt);
+            cupcake.update(dt);
         }
 
     }
@@ -97,7 +97,7 @@ public class PlayScreen implements Screen {
         //för kollision?
        // world.step(1/60f, 6, 2);
 
-        cupcake.update(dt);
+        //cupcake.update(dt);
 
         cam.update();
         /*renderer.setView(cam);*/
@@ -105,7 +105,7 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        //update(delta);
+        update(delta);
 
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
