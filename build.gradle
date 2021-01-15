@@ -1,6 +1,4 @@
 buildscript {
-    
-
     repositories {
         mavenLocal()
         mavenCentral()
@@ -14,14 +12,25 @@ buildscript {
         classpath 'org.gretty:gretty:3.0.2'
         classpath 'com.android.tools.build:gradle:3.4.3'
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.11'
-        
-
     }
 }
-
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
 allprojects {
     apply plugin: "eclipse"
-
     version = '1.0'
     ext {
         appName = "TestFactory"
@@ -31,7 +40,6 @@ allprojects {
         ashleyVersion = '1.7.3'
         aiVersion = '1.8.2'
     }
-
     repositories {
         mavenLocal()
         mavenCentral()
@@ -41,25 +49,18 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
 }
-
 project(":desktop") {
     apply plugin: "java-library"
-
-
     dependencies {
         implementation project(":core")
         api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-        
     }
 }
-
 project(":android") {
     apply plugin: "com.android.application"
-
     configurations { natives }
-
     dependencies {
         implementation project(":core")
         api "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
@@ -74,15 +75,11 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-arm64-v8a"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86_64"
-        
     }
 }
-
 project(":ios") {
     apply plugin: "java-library"
     apply plugin: "robovm"
-
-
     dependencies {
         implementation project(":core")
         api "com.mobidevelop.robovm:robovm-rt:$roboVMVersion"
@@ -90,17 +87,13 @@ project(":ios") {
         api "com.badlogicgames.gdx:gdx-backend-robovm:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios"
         api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-ios"
-        
     }
 }
-
 project(":html") {
     apply plugin: "java-library"
     apply plugin: "gwt"
     apply plugin: "war"
     apply plugin: "org.gretty"
-
-
     dependencies {
         implementation project(":core")
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
@@ -108,17 +101,12 @@ project(":html") {
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources"
-        
     }
 }
-
 project(":core") {
     apply plugin: "java-library"
-
-
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        
     }
 }

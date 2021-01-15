@@ -7,6 +7,7 @@ ext {
 	mainClassName = "com.test.testfactory.IOSLauncher"
 }
 
+
 launchIPhoneSimulator.dependsOn build
 launchIPadSimulator.dependsOn build
 launchIOSDevice.dependsOn build
