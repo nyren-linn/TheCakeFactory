@@ -1,5 +1,6 @@
 package com.project.TheCakeFactory;
 
+import com.project.TheCakeFactory.player.Player;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,5 +19,6 @@ public class TheCakeFactoryApplication {
 	public String welcome(@RequestParam(value = "name", defaultValue = "sugar") String name) {
 		return String.format("Welcome %s!", name);
 	}
+
 
 }
