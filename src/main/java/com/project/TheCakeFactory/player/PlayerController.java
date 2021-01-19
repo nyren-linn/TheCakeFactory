@@ -13,7 +13,6 @@ public class PlayerController {
     @Autowired
     PlayerService playerService;
 
-    //Rätt med argumenten??? Fick lägga till GameID
     @PostMapping("/addPlayer")
     public ResponseEntity<Player> addPlayer(@RequestBody Player player){
         return playerService.addPlayer(player);

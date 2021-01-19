@@ -14,13 +14,9 @@ import static javax.persistence.CascadeType.ALL;
 @Data
 public class Game {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Player> playerList;
