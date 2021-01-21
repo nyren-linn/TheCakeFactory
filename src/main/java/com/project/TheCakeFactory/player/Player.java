@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static javax.persistence.CascadeType.ALL;
 
@@ -50,5 +51,14 @@ public class Player {
 
     public void setScoreList(List<Integer> scoreList) {
         this.scoreList = scoreList;
+    }
+
+    public boolean equals(Player p) {
+        return p.getId() == this.id && p.getName().equals(this.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }

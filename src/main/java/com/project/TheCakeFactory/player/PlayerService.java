@@ -19,11 +19,11 @@ public class PlayerService {
 
     public ResponseEntity<Player> addPlayer(Player player){
         playerRepository.save(player);
-
         return new ResponseEntity<Player>(player, HttpStatus.ACCEPTED);
     }
 
     public ResponseEntity<List<Player>> getAllPlayers(){
         return new ResponseEntity<List<Player>>(playerRepository.findAll(), HttpStatus.ACCEPTED);
     }
+
 }

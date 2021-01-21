@@ -1,5 +1,6 @@
 package com.project.TheCakeFactory.game;
 
+import com.project.TheCakeFactory.helperClasses.GamePlayerModell;
 import com.project.TheCakeFactory.player.Player;
 import com.project.TheCakeFactory.player.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class GameService {
     @Autowired
     PlayerRepository playerRepository;
 
+    GamePlayerModell gamePlayerModell;
+
     public ResponseEntity<Game> addGame(){
         System.out.println("Tjohejhej!");
         Game game = new Game();
@@ -25,13 +28,16 @@ public class GameService {
         return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
     }
 
-    public ResponseEntity<Game> addPlayerToGame(Game game){
-        Game gameDB = gameRepository.findById(game.getId());
-        Player player = playerRepository.findById(game.getPlayerList().get(0).getId());
-
-        gameDB.getPlayerList().add(player);
-        gameRepository.save(gameDB);
-        return new ResponseEntity<Game>(gameDB, HttpStatus.ACCEPTED);
+    public ResponseEntity<Game> addPlayerToAGame(GamePlayerModell gamePlayerModell){
+        System.out.println("Goddagens!");
+        Game game = gameRepository.findById(gamePlayerModell.getGameId());
+        //if(game==null){
+          //  throw new GameNotFoundException(gamePlayerModell.getGameId());
+        //}
+        Player player = playerRepository.findById((gamePlayerModell.getPlayerId()));
+        game.addPlayerToGame(player);
+        gameRepository.save(game);
+        return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
     }
 
     public ResponseEntity<List<Game>> getAllGames(){

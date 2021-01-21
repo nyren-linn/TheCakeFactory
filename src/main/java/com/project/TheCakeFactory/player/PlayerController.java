@@ -23,6 +23,4 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
-
-
 }
