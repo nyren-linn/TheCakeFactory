@@ -17,7 +17,7 @@ public class PlayerService {
     @Autowired
     GameRepository gameRepository;
 
-    public ResponseEntity<Player> addPlayer(@RequestBody Player player){
+    public ResponseEntity<Player> addPlayer(Player player){
         playerRepository.save(player);
 
         return new ResponseEntity<Player>(player, HttpStatus.ACCEPTED);

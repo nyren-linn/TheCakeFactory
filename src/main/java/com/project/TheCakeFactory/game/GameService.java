@@ -18,12 +18,14 @@ public class GameService {
     @Autowired
     PlayerRepository playerRepository;
 
-    public ResponseEntity<Game> addGame(@RequestBody Game game){
+    public ResponseEntity<Game> addGame(){
+        System.out.println("Tjohejhej!");
+        Game game = new Game();
         gameRepository.save(game);
         return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
     }
 
-    public ResponseEntity<Game> addPlayerToGame(@RequestBody Game game){
+    public ResponseEntity<Game> addPlayerToGame(Game game){
         Game gameDB = gameRepository.findById(game.getId());
         Player player = playerRepository.findById(game.getPlayerList().get(0).getId());
 
@@ -33,6 +35,7 @@ public class GameService {
     }
 
     public ResponseEntity<List<Game>> getAllGames(){
+        System.out.println("Hej hå HÅ!");
         return new ResponseEntity<List<Game>>(gameRepository.findAll(), HttpStatus.ACCEPTED);
     }
 

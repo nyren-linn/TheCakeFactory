@@ -13,9 +13,10 @@ public class GameController {
     @Autowired
     GameService gameService;
 
-    @PostMapping("/addGame")
-    public ResponseEntity<Game> addGame(@RequestBody Game game){
-        return gameService.addGame(game);
+    @GetMapping ("/addGame")
+    public ResponseEntity<Game> addGame(){
+        System.out.println("Tjohej!");
+        return gameService.addGame();
     }
 
     @PostMapping("/addPlayerToGame")
@@ -25,6 +26,7 @@ public class GameController {
 
     @GetMapping("/getAllGames")
     public ResponseEntity<List<Game>> getAllGames(){
+        System.out.println("Hej hå!");
         return gameService.getAllGames();
     }
 
