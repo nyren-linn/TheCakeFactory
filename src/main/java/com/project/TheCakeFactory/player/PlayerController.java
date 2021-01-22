@@ -18,6 +18,12 @@ public class PlayerController {
         return playerService.addPlayer(player);
     }
 
+    @DeleteMapping("/deletePlayer")
+    public ResponseEntity<Player> deletePlayer(@RequestBody Player player){
+        return playerService.deletePlayer(player);
+    }
+
+
     @GetMapping("/getPlayers")
     public ResponseEntity<List<Player>> getAllPlayers(){
         return playerService.getAllPlayers();

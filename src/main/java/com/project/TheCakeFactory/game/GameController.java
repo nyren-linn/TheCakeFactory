@@ -19,19 +19,16 @@ public class GameController {
 
     @GetMapping ("/addGame")
     public ResponseEntity<Game> addGame(){
-        System.out.println("Tjohej!");
         return gameService.addGame();
     }
 
     @PostMapping("/addPlayerToAGame")
     public ResponseEntity<Game> addPlayerToAGame(@RequestBody GamePlayerModell game){
-        System.out.println("Goddagens kära du!");
         return gameService.addPlayerToAGame(game);
     }
 
     @GetMapping("/getAllGames")
     public ResponseEntity<List<Game>> getAllGames(){
-        System.out.println("Hej hå!");
         return gameService.getAllGames();
     }
 }

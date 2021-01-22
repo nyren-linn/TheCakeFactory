@@ -21,15 +21,15 @@ public class GameService {
 
     GamePlayerModell gamePlayerModell;
 
+    //Lägger till ett Game
     public ResponseEntity<Game> addGame(){
-        System.out.println("Tjohejhej!");
         Game game = new Game();
         gameRepository.save(game);
         return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
     }
 
+    //Lägger till en Player till ett Game genom att man anger gameID och playerId.
     public ResponseEntity<Game> addPlayerToAGame(GamePlayerModell gamePlayerModell){
-        System.out.println("Goddagens!");
         Game game = gameRepository.findById(gamePlayerModell.getGameId());
         //if(game==null){
           //  throw new GameNotFoundException(gamePlayerModell.getGameId());
@@ -40,8 +40,8 @@ public class GameService {
         return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
     }
 
+    //Visar en lista på alla Games samt spelare kopplat till den/dom.
     public ResponseEntity<List<Game>> getAllGames(){
-        System.out.println("Hej hå HÅ!");
         return new ResponseEntity<List<Game>>(gameRepository.findAll(), HttpStatus.ACCEPTED);
     }
 
