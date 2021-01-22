@@ -1,6 +1,7 @@
 package com.project.TheCakeFactory.player;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +19,9 @@ public class PlayerController {
         return playerService.addPlayer(player);
     }
 
-    @DeleteMapping("/deletePlayer")
-    public ResponseEntity<Player> deletePlayer(@RequestBody Player player){
-        return playerService.deletePlayer(player);
+    @DeleteMapping("/deletePlayer/{playerId}")
+    public ResponseEntity deletePlayer(@PathVariable long playerId){
+        return playerService.deletePlayer(playerId);
     }
 
 

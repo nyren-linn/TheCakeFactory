@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.persistence.Entity;
 
 
-public class GamePlayerModell {
+public class GamePlayerModel {
 
     private long playerId;
     private long gameId;
 
-    public GamePlayerModell(long playerId, long gameId){
+    public GamePlayerModel(long playerId, long gameId){
         this.playerId=playerId;
         this.gameId=gameId;
     }

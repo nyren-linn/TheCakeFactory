@@ -1,5 +1,6 @@
 package com.project.TheCakeFactory.player;
 
+import com.project.TheCakeFactory.helperClasses.DataBaseEntityModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,11 +14,7 @@ import static javax.persistence.CascadeType.ALL;
 @Data
 @Entity
 @NoArgsConstructor
-public class Player {
-
-    @Id
-    @GeneratedValue
-    private long id;
+public class Player extends DataBaseEntityModel {
 
     private String name;
 
@@ -25,16 +22,16 @@ public class Player {
     private List<Integer> scoreList;
 
     public Player(String name){
-        this.name=name;
+        super();
         this.scoreList= new ArrayList<>();
+        this.name=name;
+    }
+    public List<Integer> getScoreList() {
+        return scoreList;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setScoreList(List<Integer> scoreList) {
+        this.scoreList = scoreList;
     }
 
     public String getName() {
@@ -45,20 +42,12 @@ public class Player {
         this.name = name;
     }
 
-    public List<Integer> getScoreList() {
-        return scoreList;
-    }
-
-    public void setScoreList(List<Integer> scoreList) {
-        this.scoreList = scoreList;
-    }
-
     public boolean equals(Player p) {
-        return p.getId() == this.id && p.getName().equals(this.name);
+        return p.getId() == this.getId() && p.getName().equals(this.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(this.getId(), name);
     }
 }
