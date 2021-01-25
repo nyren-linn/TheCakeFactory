@@ -1,0 +1,26 @@
+
+cupcake1.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+c11
+  rotate: false
+  xy: 1, 1
+  size: 277, 277
+  orig: 277, 277
+  offset: 0, 0
+  index: -1
+c13
+  rotate: false
+  xy: 280, 1
+  size: 277, 277
+  orig: 277, 277
+  offset: 0, 0
+  index: -1
+c12
+  rotate: false
+  xy: 559, 2
+  size: 275, 276
+  orig: 275, 276
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,2 @@
+com/test/testfactory/desktop/DesktopLauncher.java
+ com.test.testfactory.desktop.DesktopLauncher
