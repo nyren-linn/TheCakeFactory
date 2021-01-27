@@ -15,7 +15,7 @@ import java.net.URL;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		try {
-			URL url = new URL("http://localhost:8080/players/1");
+			URL url = new URL("http://localhost:8081/getPlayers");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -43,7 +43,7 @@ public class DesktopLauncher {
 				System.out.println(s);
 			}
 
-			name = strings[5];
+			name = strings[9];
 			com.test.testfactory.scenes.Hud.player = name;
 			in.close();
 
