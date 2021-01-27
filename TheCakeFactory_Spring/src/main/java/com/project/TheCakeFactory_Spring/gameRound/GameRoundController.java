@@ -1,5 +1,7 @@
 package com.project.TheCakeFactory_Spring.gameRound;
 
+import com.project.TheCakeFactory_Spring.game.Game;
+import com.project.TheCakeFactory_Spring.helperClasses.UpdatePlayerGameRoundModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +16,8 @@ public class GameRoundController {
     GameRoundService gameRoundService;
 
     @GetMapping ("/addGameRound")
-    public ResponseEntity<GameRound> addGameRound(GameRound gameRound){
-        return gameRoundService.addGameRound(gameRound);
+    public ResponseEntity<Game> addGameRound(@RequestBody UpdatePlayerGameRoundModel updatePlayerGameRoundModel){
+        return gameRoundService.addGameRound(updatePlayerGameRoundModel);
     }
     
     @GetMapping("/getAllScoresForGameRound")
