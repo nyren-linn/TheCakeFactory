@@ -19,6 +19,7 @@ public class Hud {
     private Integer worldTimer;
     private float timeCount;
     private Integer score;
+    public static String player;
 
     Label countdownLabel;
     Label scoreLabel;
@@ -46,7 +47,7 @@ public class Hud {
         timeLabel =  new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         levelLabel = new Label("1-1", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        peachLabel = new Label("PEACH", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        peachLabel = new Label(player, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         table.add(peachLabel).expandX().padTop(10);
         table.add(worldLabel).expandX().padTop(10);
