@@ -54,7 +54,6 @@ public class GameService {
                 return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
             }
             throw new Exception("This player dosen't exist in this game!");
-            
         }catch(Exception e){
             System.out.println(e.getMessage());
             return new ResponseEntity<GamePlayerModel>(gamePlayerModel, HttpStatus.BAD_REQUEST);
@@ -64,5 +63,16 @@ public class GameService {
     //Visar en lista på alla Games samt spelare kopplat till den/dom.
     public ResponseEntity<List<Game>> getAllGames(){
         return new ResponseEntity<List<Game>>(gameRepository.findAll(), HttpStatus.ACCEPTED);
+    }
+
+    //Hämtar Game genom att ange Id.
+    public Game getGameById(long gameId){
+        return gameRepository.findById(gameId);
+    }
+
+    //Uppdaterar Game.
+    public Game updateGame(Game game){
+        gameRepository.save(game);
+        return game;
     }
 }

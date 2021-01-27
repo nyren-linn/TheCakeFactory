@@ -21,8 +21,6 @@ public class Game extends DataBaseEntityModel {
         this.playerList=new ArrayList<>();
     }
 
-    // Då vi anänvder lombok så behövs inga getters/setters. Men IntelliJ tillåter inte, kräver plugin.:)
-
     public List<PlayerInGame> getPlayerList() {
         return playerList;
     }
@@ -38,7 +36,6 @@ public class Game extends DataBaseEntityModel {
 
     //Tar bort spelare från playerList i Game.
     public boolean removePlayerFromGame(Player player){
-        //PlayerInGame oldPlayer = new PlayerInGame(player);
         for(PlayerInGame p : this.playerList) {
             if (p.getPlayerId() == player.getId()) {
                 this.playerList.remove(p);
@@ -46,5 +43,13 @@ public class Game extends DataBaseEntityModel {
             }
         }
         return false;
+    }
+
+    public PlayerInGame getPlayerInGameById(long id){
+        for(PlayerInGame p : playerList){
+            if(p.getPlayerId() == id)
+                return p;
+        }
+        return null;
     }
 }
