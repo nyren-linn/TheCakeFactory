@@ -49,9 +49,12 @@ public class GameService {
         try {
             Game game = gameRepository.findById(gamePlayerModel.getGameId());
             Player player = playerRepository.findById(gamePlayerModel.getPlayerId());
-            game.removePlayerFromGame(player);
-            gameRepository.save(game);
-            return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
+            if(game.removePlayerFromGame(player) == true){
+                gameRepository.save(game);
+                return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
+            }
+            throw new Exception("This player dosen't exist in this game!");
+            
         }catch(Exception e){
             System.out.println(e.getMessage());
             return new ResponseEntity<GamePlayerModel>(gamePlayerModel, HttpStatus.BAD_REQUEST);

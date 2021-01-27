@@ -36,14 +36,15 @@ public class Game extends DataBaseEntityModel {
         this.playerList.add(player);
     }
 
-    //Tar bort spelare från playerList.
-    //TODO: Funkar just nu inte! FIXA!
-    public void removePlayerFromGame(Player player){
-        PlayerInGame oldPlayer = new PlayerInGame(player);
+    //Tar bort spelare från playerList i Game.
+    public boolean removePlayerFromGame(Player player){
+        //PlayerInGame oldPlayer = new PlayerInGame(player);
         for(PlayerInGame p : this.playerList) {
-            if (p.equals(oldPlayer)) {
-                this.playerList.remove(oldPlayer); break;
+            if (p.getPlayerId() == player.getId()) {
+                this.playerList.remove(p);
+                return true;
             }
         }
+        return false;
     }
 }
