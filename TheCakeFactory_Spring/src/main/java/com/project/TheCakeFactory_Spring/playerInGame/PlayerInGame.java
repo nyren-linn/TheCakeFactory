@@ -53,18 +53,30 @@ public class PlayerInGame extends DataBaseEntityModel {
             this.roundList.add(score);
         }
     }
-
+    //Tar bort score genom klassen GameRound.
     public void withdrawScore(GameRound score){
         if(score.getScore()<0){
             roundList.add(score);
         }
     }
 
+    //Ger den totala Score för flera GameRounds för en spelare.
     public int getTotalScore(){
         int totalScore = 0;
         for(GameRound gr : roundList){
             totalScore += gr.getScore();
         }
         return totalScore;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+
+        PlayerInGame p = (PlayerInGame) obj;
+
+        if(playerId != p.playerId) return false;
+        return playerName.equals(p.playerName);
     }
 }

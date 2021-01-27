@@ -17,10 +17,12 @@ import java.util.List;
 public class GameRound extends DataBaseEntityModel {
     
     private int score;
+    private String type;
     
-    public GameRound(int score){
+    public GameRound(int score, String type){
         super();
         this.score= score;
+        this.type= type;
     }
 
     public int getScore() {
@@ -29,5 +31,13 @@ public class GameRound extends DataBaseEntityModel {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getType(){
+        return this.type;
+    }
+
+    public void setType(String type){
+        this.type = type;
     }
 }

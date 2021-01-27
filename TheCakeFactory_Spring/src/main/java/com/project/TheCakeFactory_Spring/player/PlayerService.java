@@ -34,12 +34,10 @@ public class PlayerService {
             String message = "Something went wrong \nHave you removed the player from associated games?";
             return new ResponseEntity(message, HttpStatus.BAD_REQUEST);
         }*/
-
     }
 
     //Visar en lista på att tillagda Players
     public ResponseEntity<List<Player>> getAllPlayers(){
         return new ResponseEntity<List<Player>>(playerRepository.findAll(), HttpStatus.OK);
     }
-
 }
