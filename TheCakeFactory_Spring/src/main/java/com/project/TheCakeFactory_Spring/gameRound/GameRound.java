@@ -15,16 +15,12 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 public class GameRound extends DataBaseEntityModel {
-
+    
     private int score;
-
-    @OneToMany(targetEntity= GameRound.class, fetch = FetchType.LAZY)
-    private List<Integer> scoreList;
     
     public GameRound(int score){
         super();
-        this.scoreList= new ArrayList<>();
-        this.score=score;
+        this.score= score;
     }
 
     public int getScore() {
@@ -33,13 +29,5 @@ public class GameRound extends DataBaseEntityModel {
 
     public void setScore(int score) {
         this.score = score;
-    }
-
-    public List<Integer> getScoreList() {
-        return scoreList;
-    }
-
-    public void setScoreList(List<Integer> scoreList) {
-        this.scoreList = scoreList;
     }
 }

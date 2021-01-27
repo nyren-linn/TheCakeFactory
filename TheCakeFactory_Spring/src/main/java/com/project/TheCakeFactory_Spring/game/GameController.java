@@ -29,7 +29,6 @@ public class GameController {
 
     @DeleteMapping("/removePlayerFromGame")
     public ResponseEntity removePlayerFromGame(@RequestBody GamePlayerModel gamePlayerModel){
-        //System.out.println("Tjolahopp!");
         return gameService.removePlayerFromGame(gamePlayerModel);
     }
 

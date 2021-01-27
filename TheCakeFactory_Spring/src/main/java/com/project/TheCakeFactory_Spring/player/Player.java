@@ -1,5 +1,6 @@
 package com.project.TheCakeFactory_Spring.player;
 
+import com.project.TheCakeFactory_Spring.gameRound.GameRound;
 import com.project.TheCakeFactory_Spring.helperClasses.DataBaseEntityModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,21 +18,10 @@ import static javax.persistence.CascadeType.ALL;
 public class Player extends DataBaseEntityModel {
 
     private String name;
-
-    @OneToMany(targetEntity=Player.class, fetch = FetchType.LAZY)
-    private List<Integer> scoreList;
-
+    
     public Player(String name){
         super();
-        this.scoreList= new ArrayList<>();
         this.name=name;
-    }
-    public List<Integer> getScoreList() {
-        return scoreList;
-    }
-
-    public void setScoreList(List<Integer> scoreList) {
-        this.scoreList = scoreList;
     }
 
     public String getName() {

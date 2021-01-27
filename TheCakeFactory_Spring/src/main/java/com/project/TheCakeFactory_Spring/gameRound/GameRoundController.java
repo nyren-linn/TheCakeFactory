@@ -13,13 +13,13 @@ public class GameRoundController {
     @Autowired
     GameRoundService gameRoundService;
 
-    @PostMapping("/addScoreToGameRound")
-    public ResponseEntity<GameRound> addScoreToGameRound (@RequestBody GameRound gameRound){
-        return gameRoundService.addScoreToGameRound(gameRound);
+    @GetMapping ("/addGameRound")
+    public ResponseEntity<GameRound> addGameRound(GameRound gameRound){
+        return gameRoundService.addGameRound(gameRound);
     }
-
-    @GetMapping("/getAllScores")
+    
+    @GetMapping("/getAllScoresForGameRound")
     public ResponseEntity<List<GameRound>> getAllScores(){
-        return gameRoundService.getAllScores();
+        return gameRoundService.getAllScoresForGameRound();
     }
 }

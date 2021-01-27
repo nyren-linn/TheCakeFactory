@@ -23,11 +23,9 @@ public class PlayerController {
     public ResponseEntity deletePlayer(@PathVariable long playerId){
         return playerService.deletePlayer(playerId);
     }
-
-
+    
     @GetMapping("/getPlayers")
     public ResponseEntity<List<Player>> getAllPlayers(){
         return playerService.getAllPlayers();
     }
-
 }

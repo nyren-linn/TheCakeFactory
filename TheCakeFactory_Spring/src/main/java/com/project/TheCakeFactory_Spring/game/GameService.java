@@ -3,6 +3,8 @@ package com.project.TheCakeFactory_Spring.game;
 import com.project.TheCakeFactory_Spring.helperClasses.GamePlayerModel;
 import com.project.TheCakeFactory_Spring.player.Player;
 import com.project.TheCakeFactory_Spring.player.PlayerRepository;
+import com.project.TheCakeFactory_Spring.playerInGame.PlayerInGame;
+import com.project.TheCakeFactory_Spring.playerInGame.PlayerInGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +18,14 @@ public class GameService {
     GameRepository gameRepository;
     @Autowired
     PlayerRepository playerRepository;
+    @Autowired
+    PlayerInGameRepository playerInGameRepository;
 
     //Lägger till ett Game
     public ResponseEntity<Game> addGame(){
         Game game = new Game();
         gameRepository.save(game);
-        return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
+        return new ResponseEntity<Game>(game, HttpStatus.CREATED);
     }
 
     //Lägger till en Player till ett Game genom att man anger gameID och playerId.
@@ -30,8 +34,11 @@ public class GameService {
         //if(game==null){
           //  throw new GameNotFoundException(gamePlayerModell.getGameId());
         //}
-        Player player = playerRepository.findById((gamePlayerModel.getPlayerId()));
-        game.addPlayerToGame(player);
+        Player player = playerRepository.findById(gamePlayerModel.getPlayerId());
+        PlayerInGame playerInGame= new PlayerInGame(player);
+        game.addPlayerToGame(playerInGame);
+        playerInGameRepository.save(playerInGame);
+        //System.out.println(game.getPlayerList().get(0).getPlayerId());
         gameRepository.save(game);
         return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
     }
@@ -54,20 +61,4 @@ public class GameService {
     public ResponseEntity<List<Game>> getAllGames(){
         return new ResponseEntity<List<Game>>(gameRepository.findAll(), HttpStatus.ACCEPTED);
     }
-
-    /*
-    public Score saveScore(Score score){
-        Score foundedScore = gameRepository.findById(score.getId()).get();
-
-        if (foundedScore == null){
-            foundedScore.setScore(foundedScore.getScore() + score.getScore());
-            gameRepository.save(foundedScore);
-            return foundedScore;
-        }
-        gameRepository.save(score);
-        return score;
-    }
-    */
-
-
 }
