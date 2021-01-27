@@ -28,7 +28,9 @@ public class GameService {
         return new ResponseEntity<Game>(game, HttpStatus.CREATED);
     }
 
-    //Lägger till en Player till ett Game genom att man anger gameID och playerId.
+    //Lägger till en Player till ett Game genom att man anger gameID och playerId. 
+    //Player sparas först i PlayerInGameRepository och sen sparas det i sin tur i GameRepository.
+    //TODO: Skapa Exception ifall spelare försöker läggas till i ett spel som inte finns.
     public ResponseEntity<Game> addPlayerToAGame(GamePlayerModel gamePlayerModel){
         Game game = gameRepository.findById(gamePlayerModel.getGameId());
         //if(game==null){
@@ -38,7 +40,6 @@ public class GameService {
         PlayerInGame playerInGame= new PlayerInGame(player);
         game.addPlayerToGame(playerInGame);
         playerInGameRepository.save(playerInGame);
-        //System.out.println(game.getPlayerList().get(0).getPlayerId());
         gameRepository.save(game);
         return new ResponseEntity<Game>(game, HttpStatus.ACCEPTED);
     }

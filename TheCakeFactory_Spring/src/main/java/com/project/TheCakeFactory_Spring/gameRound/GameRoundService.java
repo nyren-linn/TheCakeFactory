@@ -20,6 +20,7 @@ public class GameRoundService {
         return new ResponseEntity<GameRound>(gameRound, HttpStatus.ACCEPTED);
     }
     
+    //Visar en lista på alla GameRounds
     public ResponseEntity<List<GameRound>> getAllScoresForGameRound(){
         return new ResponseEntity<List<GameRound>>(gameRoundRepository.findAll(), HttpStatus.OK);
     }

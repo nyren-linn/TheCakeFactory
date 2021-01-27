@@ -20,6 +20,7 @@ public class PlayerInGame extends DataBaseEntityModel {
 
     public PlayerInGame(){}
     
+    //Tar emot en player och hämtar id och namn från Player-klassen
     public PlayerInGame(Player player){
         this.playerId=player.getId();
         this.playerName=player.getName();
@@ -46,6 +47,7 @@ public class PlayerInGame extends DataBaseEntityModel {
         this.roundList.add(gameRound);
     }
 
+    //Lägger till score genom klassen GameRound.
     public void addScore(GameRound score){
         if(score.getScore()>0){
             this.roundList.add(score);

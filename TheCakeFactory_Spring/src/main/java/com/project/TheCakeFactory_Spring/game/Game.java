@@ -31,18 +31,13 @@ public class Game extends DataBaseEntityModel {
         this.playerList = playerList;
     }
 
+    //Lägger till en spelare i playerList
     public void addPlayerToGame(PlayerInGame player){
-        //PlayerInGame newPlayer = new PlayerInGame(player);
-        //boolean exist = false;
-        //for(PlayerInGame p : this.playerList){
-            //if(p.equals(newPlayer)) exist=true; break;
-        //}
-        //if(!exist)
-        //this.playerList.add(newPlayer);
-
         this.playerList.add(player);
     }
 
+    //Tar bort spelare från playerList.
+    //TODO: Funkar just nu inte! FIXA!
     public void removePlayerFromGame(Player player){
         PlayerInGame oldPlayer = new PlayerInGame(player);
         for(PlayerInGame p : this.playerList) {
