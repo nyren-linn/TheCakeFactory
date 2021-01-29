@@ -65,7 +65,7 @@ public class GameService {
         return new ResponseEntity<List<Game>>(gameRepository.findAll(), HttpStatus.ACCEPTED);
     }
 
-    //Hämtar Game genom att ange Id.
+    //Hämtar Game genom att ange Id
     public Game getGameById(long gameId){
         return gameRepository.findById(gameId);
     }
