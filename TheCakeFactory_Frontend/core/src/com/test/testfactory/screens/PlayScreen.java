@@ -35,10 +35,6 @@ public class PlayScreen implements Screen {
 
     private Cupcake cupcake;
 
-    /*private TmxMapLoader mapLoader;
-    private TiledMap map;
-    private OrthogonalTiledMapRenderer renderer;*/
-
     //box2d
     private World world;
     private Box2DDebugRenderer b2dr;
@@ -50,15 +46,8 @@ public class PlayScreen implements Screen {
         background = new Texture("kitchen.jpg");
 
         cam = new OrthographicCamera();
-      /*  port = new FillViewport(TestFactory.V_WIDTH, TestFactory.V_HEIGHT, cam);
-        port = new ScreenViewport(cam);*/
         port = new FitViewport(TestFactory.V_WIDTH, TestFactory.V_HEIGHT, cam);
         hud = new Hud(game.batch);
-
-       /* mapLoader = new TmxMapLoader();
-        map = mapLoader.load("filename");
-        renderer = new OrthogonalTiledMapRenderer(map);
-        cam.position.set(port.getWorldWidth() / 2, port.getWorldHeight() / 2, 0);*/
 
         //för box2d-fysik, gravitation etc. OBS!!! för mer info, se part7
         world = new World(new Vector2(0, 0), true);
@@ -94,13 +83,8 @@ public class PlayScreen implements Screen {
     //för att hantera maps
     public void update(float dt){
         handleInput(dt);
-        //för kollision?
-       // world.step(1/60f, 6, 2);
-
-        //cupcake.update(dt);
 
         cam.update();
-        /*renderer.setView(cam);*/
     }
 
     @Override
@@ -117,9 +101,6 @@ public class PlayScreen implements Screen {
         cupcake.draw(game.batch);
         game.batch.end();
 
-       // renderer.render();
-
-
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
@@ -129,9 +110,6 @@ public class PlayScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         port.update(width, height);
-     //   cam.position.set(TestFactory.V_WIDTH / 2, TestFactory.V_HEIGHT / 2, 0);
-
-
     }
 
     @Override

@@ -1,0 +1,10 @@
+com/test/testfactory/AndroidLauncher.java
+ com.test.testfactory.AndroidLauncher
+com/test/testfactory/R.java
+ com.test.testfactory.R
+ com.test.testfactory.R$color
+ com.test.testfactory.R$drawable
+ com.test.testfactory.R$string
+ com.test.testfactory.R$style
+com/test/testfactory/BuildConfig.java
+ com.test.testfactory.BuildConfig

@@ -1,0 +1,4 @@
+com/test/testfactory/test/BuildConfig.java
+ com.test.testfactory.test.BuildConfig
+com/test/testfactory/test/R.java
+ com.test.testfactory.test.R

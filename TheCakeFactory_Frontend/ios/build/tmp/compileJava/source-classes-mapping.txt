@@ -1,0 +1,2 @@
+com/test/testfactory/IOSLauncher.java
+ com.test.testfactory.IOSLauncher

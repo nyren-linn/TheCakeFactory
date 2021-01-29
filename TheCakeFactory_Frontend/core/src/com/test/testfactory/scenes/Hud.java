@@ -13,6 +13,7 @@ import com.test.testfactory.TestFactory;
 
 public class Hud {
     public Stage stage;
+
     //kanske inte behövs om vårt spel inte ska röra sig. den här är tänkt att stanna på poäng/mynt/liv
     private Viewport viewport;
 
@@ -39,6 +40,7 @@ public class Hud {
 
         Table table = new Table();
         table.top();
+
         //table är lika stor som stage
         table.setFillParent(true);
 

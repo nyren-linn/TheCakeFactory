@@ -42,19 +42,18 @@ public class Cupcake extends Sprite {
     }
 
     public void update(float dt){
-        //setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
         Gdx.app.log("state", "START");
         getState();
         if(currentState == State.START){
             currentState = State.FROSTING;
             cupcakeStart = t1;
             Gdx.app.log("state", "FROSTING");
-            //return cupcakeStart;
+
         } else if(currentState == State.FROSTING){
             currentState = State.TOPPING;
             cupcakeStart = t2;
             Gdx.app.log("state", "TOPPING");
-            //return cupcakeStart;
+
         }
 
         setRegion(getFrame());

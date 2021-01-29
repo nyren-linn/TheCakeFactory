@@ -20,14 +20,6 @@ public class DesktopLauncher {
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
 
-/*            BufferedReader br = new BufferedReader((new InputStreamReader((conn.getInputStream()))));
-
-            String output;
-            System.out.println("----------- Output from server ------------");
-            while((output = br.readLine()) != null){
-                System.out.println(output);
-            }*/
-
 			BufferedReader in = new BufferedReader(
 					new InputStreamReader(
 							conn.getInputStream()));
